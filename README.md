@@ -14,7 +14,7 @@ Screenshot of UFVPY231_1_paired.fastq:
 ![R1_paired.PNG](/data/R1_paired.PNG)
 
 Screenshot of UFVPY231_2_paired.fastq:
-![R2_paired.png](/data/R2_paired.png)
+![R2_paired.PNG](/data/R2_paired.PNG)
 
 ## 2. Ran trimmomatic
 ```bash
