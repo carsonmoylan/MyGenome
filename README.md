@@ -9,8 +9,9 @@ cd MyGenome
 fastqc &
 ```
 Load F1 and R1 datasets into GUI interface.
+
 Screenshot of UFVPY231_1_paired.fastq:
-![R1_paired.png](/data/R1_paired.png)
+![R1_paired.PNG](/data/R1_paired.PNG)
 
 Screenshot of UFVPY231_2_paired.fastq:
 ![R2_paired.png](/data/R2_paired.png)
