@@ -30,11 +30,11 @@ grep -c '^@A00261' UFVPY231_1_paired.fastq
 Bases in UFVPY231_1_paired.fastqc
 ```bash
 awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_1_paired.fastq
-1494892486
+output: 1494892486
 ```
 Bases in UFVPY231_2_paired.fastqc
 ```bash
 awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_2_paired.fastq
-1494612901
+output: 1494612901
 ```
-Add the two numbers to get 2,989,505,387
+Add the two numbers to get 2,989,505,387 total bases
