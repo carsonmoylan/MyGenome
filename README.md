@@ -8,7 +8,7 @@ ssh -Y cmo343@cmo343.cs.uky.edu
 cd MyGenome
 fastqc &
 ```
-Load F1 and R1 datasets into GUI interface.
+Load R1 and R2 datasets into GUI interface.
 
 Screenshot of UFVPY231_1_paired.fastq:
 ![R1_paired.PNG](/data/R1_paired.PNG)
@@ -23,5 +23,18 @@ java -jar ~/sequences/trimmomatic-0.38.jar PE -threads 16 -phred33 -trimlog file
 
 ## 3. Count the number of forward reads remaining
 ```bash
-grep...
+grep -c '^@A00261' UFVPY231_1_paired.fastq
 ```
+
+## 4. Count the total number of bases in both files
+Bases in UFVPY231_1_paired.fastqc
+```bash
+awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_1_paired.fastq
+1494892486
+```
+Bases in UFVPY231_2_paired.fastqc
+```bash
+awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_2_paired.fastq
+1494612901
+```
+Add the two numbers to get 2,989,505,387
