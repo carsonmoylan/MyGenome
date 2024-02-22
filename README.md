@@ -27,18 +27,7 @@ grep -c '^@A00261' UFVPY231_1_paired.fastq
 ```
 
 ## 4. Count the total number of bases in both files
-Bases in UFVPY231_1_paired.fastqc
-```bash
-awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_1_paired.fastq
-output: 1494892486
-```
-Bases in UFVPY231_2_paired.fastqc
-```bash
-awk 'NR%4==2 {total += length($0)} END {print total}' UFVPY231_2_paired.fastq
-output: 1494612901
-```
-Add the two numbers to get 2,989,505,387 total bases
-
 ```bash
 cat UFVPY231_1_paired.fastq UFVPY231_2_paired.fastq | awk 'NR%4==2 {total += length($0)} END {print total}'
 ```
+The above command tells us that there are 2,989,505,387 total bases
