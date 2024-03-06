@@ -25,6 +25,7 @@ java -jar ~/sequences/trimmomatic-0.38.jar PE -threads 16 -phred33 -trimlog file
 ```bash
 grep -c '^@A00261' UFVPY231_1_paired.fastq
 ```
+Output: 9,982,400
 
 ## 4. Count the total number of bases in both files
 ```bash
