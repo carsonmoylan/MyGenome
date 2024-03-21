@@ -44,3 +44,10 @@ Velvet hash value = 101
 sbatch velvetoptimiser_noclean.sh UFVPY231 91 111 2
 ```
 Velvet hash value = 99
+
+## 7. Rename sequence headers to a standard format
+```bash
+perl /project/farman_s24cs485g/SCRIPTs/SimpleFastaHeaders.pl UFVPY231.fasta
+```
+
+
