@@ -50,4 +50,7 @@ Velvet hash value = 99
 perl /project/farman_s24cs485g/SCRIPTs/SimpleFastaHeaders.pl UFVPY231.fasta
 ```
 
-
+## 8. Check Genome completeness using BUSCO
+```bash
+sbatch BuscoSingularity.sh UFVPY231/velvet_UFVPY231_91_111_2_noclean/UFVPY231_nh.fasta
+```
