@@ -32,3 +32,15 @@ Output: 9,982,400
 cat UFVPY231_1_paired.fastq UFVPY231_2_paired.fastq | awk 'NR%4==2 {total += length($0)} END {print total}'
 ```
 The above command tells us that there are 2,989,505,387 total bases
+
+## 5. Submit first assembly of step size 10 to SLURM
+```bash
+sbatch velvetoptimiser_noclean.sh UFVPY231 61 131 10
+```
+Velvet hash value = 101
+
+## 6. Submit second assembly of step size 2 to SLURM
+```bash
+sbatch velvetoptimiser_noclean.sh UFVPY231 91 111 2
+```
+Velvet hash value = 99
