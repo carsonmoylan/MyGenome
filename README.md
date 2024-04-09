@@ -1,4 +1,4 @@
-# MyGenome
+# MyGenome (UFVPY231)
 Analyses for CS485G genome assembly
 
 ## 1. Analysis of sequence quality
@@ -53,4 +53,31 @@ perl /project/farman_s24cs485g/SCRIPTs/SimpleFastaHeaders.pl UFVPY231.fasta
 ## 8. Check Genome completeness using BUSCO
 ```bash
 sbatch BuscoSingularity.sh UFVPY231/velvet_UFVPY231_91_111_2_noclean/UFVPY231_nh.fasta
+```
+
+## ? other steps??
+
+## 9. Remove contigs less than 200 base pairs long
+```bash
+perl CullShortContigs.pl UFVPY231_nh.fasta
+```
+
+## 10. BLAST the MoMitochondrion.fasta sequence against the final genome assembly
+```bash
+blastn -query MoMitochondrion.fasta -subject UFVPY231_nh.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid slen length qstart qend sstart send btop' -out MoMitochondrion.UFVPY231.BLAST
+```
+
+## 11. Export a list of contigs that mostly comprise mitochondrial sequences
+```bash
+awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' MoMitochondrion.UFVPY231.BLAST > UFVPY231_mitochondrion.csv
+```
+
+## 12. BLAST the genome assembly against a repeat-masked version of the B71 reference genome
+```bash
+blastn -query B71v2sh_masked.fasta -subject UFVPY231_Final.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid qstart qend sstart send btop' -out B71v2sh.UFVPY231.BLAST
+```
+
+## 13. Identify genetic variants between the B71v2sh genome and the genome assembly
+```bash
+sbatch CallVariants.sh UFVPY231_BLASTS
 ```
