@@ -127,3 +127,8 @@ augustus --species=magnaporthe_grisea --gff3=on --singlestrand=true --progress=t
 maker 2>&1 | tee maker.log
 gff3_merge -d UFVPY231.maker.output/UFVPY231_master_datastore_index.log -o UFVPY231-annotations.gff
 ```
+## 18. Count the number of predicted proteins
+```bash
+grep 'UFVPY231_contig' UFVPY231-annotations.gff | awk '{print $3}' | grep 'gene' | wc -l
+```
+Predicted proteins: 12,925
