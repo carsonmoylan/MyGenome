@@ -25,6 +25,7 @@ java -jar ~/sequences/trimmomatic-0.38.jar PE -threads 16 -phred33 -trimlog file
 ```bash
 sbatch velvetoptimiser_noclean.sh UFVPY231 61 131 10
 ```
+[19-03-2024-14-57-28_Logfile](/data/19-03-2024-14-57-28_Logfile.txt)
 I found the hash size to be 110 and ran this command:
 ```bash
 sbatch velvetoptimiser_noclean.sh UFVPY231 91 111 2
