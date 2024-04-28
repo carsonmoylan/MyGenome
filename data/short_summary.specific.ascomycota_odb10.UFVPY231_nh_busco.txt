@@ -1,0 +1,32 @@
+# BUSCO version is: 5.7.0 
+# The lineage dataset is: ascomycota_odb10 (Creation date: 2024-01-08, number of genomes: 365, number of BUSCOs: 1706)
+# Summarized benchmarking in BUSCO notation for file /project/farman_s24cs485g/cmo343/UFVPY231/velvet_UFVPY231_91_111_2_noclean/UFVPY231_nh.fasta
+# BUSCO was run in mode: euk_genome_min
+# Gene predictor used: miniprot
+
+	***** Results: *****
+
+	C:98.3%[S:98.1%,D:0.2%],F:0.2%,M:1.5%,n:1706,E:3.6%	   
+	1678	Complete BUSCOs (C)	(of which 61 contain internal stop codons)		   
+	1674	Complete and single-copy BUSCOs (S)	   
+	4	Complete and duplicated BUSCOs (D)	   
+	4	Fragmented BUSCOs (F)			   
+	24	Missing BUSCOs (M)			   
+	1706	Total BUSCO groups searched		   
+
+Assembly Statistics:
+	2192	Number of scaffolds
+	6742	Number of contigs
+	44451337	Total length
+	0.865%	Percent gaps
+	101 KB	Scaffold N50
+	16 KB	Contigs N50
+
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	bbtools: 39.06
+	miniprot_index: 0.13-r248
+	miniprot_align: 0.13-r248
+	python: sys.version_info(major=3, minor=7, micro=12, releaselevel='final', serial=0)
+	busco: 5.7.0
