@@ -66,26 +66,31 @@ perl /project/farman_s24cs485g/SCRIPTs/SimpleFastaHeaders.pl UFVPY231.fasta
 ```bash
 sbatch BuscoSingularity.sh UFVPY231/velvet_UFVPY231_91_111_2_noclean/UFVPY231_nh.fasta
 ```
+[short_summary.specific.ascomycota_odb10.UFVPY231_nh_busco](/data/short_summary.specific.ascomycota_odb10.UFVPY231_nh_busco.txt)
 
 ## 10. Remove contigs less than 200 base pairs long
 ```bash
 perl CullShortContigs.pl UFVPY231_nh.fasta
 ```
+[UFVPY231_final.fasta](/data/UFVPY231_final.fasta)
 
 ## 11. BLAST the MoMitochondrion.fasta sequence against the final genome assembly
 ```bash
 blastn -query MoMitochondrion.fasta -subject UFVPY231_nh.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid slen length qstart qend sstart send btop' -out MoMitochondrion.UFVPY231.BLAST
 ```
+[MoMitochondrion.UFVPY231.BLAST](data/MoMitochondrion.UFVPY231.BLAST)
 
 ## 12. Export a list of contigs that mostly comprise mitochondrial sequences
 ```bash
 awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' MoMitochondrion.UFVPY231.BLAST > UFVPY231_mitochondrion.csv
 ```
+[UFVPY231_mitochondrion](data/UFVPY231_mitochondrion.csv)
 
 ## 13. BLAST the genome assembly against a repeat-masked version of the B71 reference genome
 ```bash
 blastn -query B71v2sh_masked.fasta -subject UFVPY231_Final.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid qstart qend sstart send btop' -out B71v2sh.UFVPY231.BLAST
 ```
+[B71v2sh.UFVPY231.BLAST](data/B71v2sh.UFVPY231.BLAST)
 
 ## 14. Identify genetic variants between the B71v2sh genome and the genome assembly
 ```bash
@@ -119,17 +124,21 @@ snap-hmm Moryzae.hmm UFVPY231_final.fasta UFVPY231-snap.zff
 fathom UFVPY231-snap.zff UFVPY231_final.fasta -gene-stats
 snap-hmm Moryzae.hmm UFVPY231_final.fasta -gff > UFVPY231-snap.gff2
 ```
+[B71v2sh_v_UFVPY231_out](data/B71v2sh_v_UFVPY231_out)
 
 ## 16. Gene Prediction Using Augustus
 ```bash
 augustus --species=magnaporthe_grisea --gff3=on --singlestrand=true --progress=true ../snap/UFVPY231_final.fasta > UFVPY231-augustus.gff3
 ```
+[UFVPY231-augustus.gff3](data/UFVPY231-augustus.gff3)
 
 ## 17. Gene Prediction using MAKER
 ```bash
 maker 2>&1 | tee maker.log
 gff3_merge -d UFVPY231.maker.output/UFVPY231_master_datastore_index.log -o UFVPY231-annotations.gff
 ```
+[UFVPY231-annotations.gff](data/UFVPY231-annotations.gff)
+
 ## 18. Count the number of predicted proteins
 ```bash
 grep 'UFVPY231_contig' UFVPY231-annotations.gff | awk '{print $3}' | grep 'gene' | wc -l
