@@ -30,6 +30,7 @@ I found the hash size to be 110 and ran this command:
 ```bash
 sbatch velvetoptimiser_noclean.sh UFVPY231 91 111 2
 ```
+[21-03-2024-14-12-17_Logfile](/data/21-03-2024-14-12-17_Logfile.txt)
 
 ## 4. Count the number of forward reads remaining
 ```bash
@@ -59,6 +60,7 @@ Velvet hash value = 99
 ```bash
 perl /project/farman_s24cs485g/SCRIPTs/SimpleFastaHeaders.pl UFVPY231.fasta
 ```
+[UFVPY231.fasta](/data/UFVPY231.fasta.zip)
 
 ## 9. Check Genome completeness using BUSCO
 ```bash
